@@ -48,15 +48,15 @@ endif
 check-files: userlist $(cert_files) secrets/oauth.env secrets/postgres.env
 
 pull:
-	sudo docker pull $(DOCKER_NOTEBOOK_IMAGE)
+	docker pull $(DOCKER_NOTEBOOK_IMAGE)
 
 notebook_image: pull singleuser/Dockerfile
-	sudo docker build -t $(LOCAL_NOTEBOOK_IMAGE) \
+	docker build -t $(LOCAL_NOTEBOOK_IMAGE) \
 		--build-arg JUPYTERHUB_VERSION=$(JUPYTERHUB_VERSION) \
 		--build-arg DOCKER_NOTEBOOK_IMAGE=$(DOCKER_NOTEBOOK_IMAGE) \
 		singleuser
 
 build: check-files network volumes
-	sudo docker-compose build
+	docker-compose build
 
 .PHONY: network volumes check-files pull notebook_image build
