@@ -21,7 +21,7 @@ c.DockerSpawner.container_image = os.environ['DOCKER_NOTEBOOK_IMAGE']
 # using the DOCKER_SPAWN_CMD environment variable.
 spawn_cmd = os.environ.get('DOCKER_SPAWN_CMD') #, "start-singleuser.sh")
 c.DockerSpawner.extra_create_kwargs.update({ 'command': spawn_cmd})
-c.DockerSpawner.environment = {'GRANT_SUDO': '1', 'JUPYTER_ENABLE_LAB' : '1'}
+# c.DockerSpawner.environment = {'GRANT_SUDO': '1', 'JUPYTER_ENABLE_LAB' : '1'}
 # Connect containers to this Docker network
 network_name = os.environ['DOCKER_NETWORK_NAME']
 c.DockerSpawner.use_internal_ip = True
@@ -37,7 +37,7 @@ c.DockerSpawner.notebook_dir = notebook_dir
 # Mount the real user's Docker volume on the host to the notebook user's
 # notebook directory in the container
 c.DockerSpawner.volumes = { 'jupyterhub-user-{username}': notebook_dir }
-# c.DockerSpawner.default_url = '/lab'
+c.Spawner.default_url = '/work/article_viewer.ipynb'
 # volume_driver is no longer a keyword argument to create_container()
 # c.DockerSpawner.extra_create_kwargs.update({ 'volume_driver': 'local' })
 # Remove containers once they are stopped
