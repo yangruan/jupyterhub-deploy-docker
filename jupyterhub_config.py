@@ -36,7 +36,8 @@ notebook_dir = os.environ.get('DOCKER_NOTEBOOK_DIR') or '/home/jovyan/work'
 c.DockerSpawner.notebook_dir = notebook_dir
 # Mount the real user's Docker volume on the host to the notebook user's
 # notebook directory in the container
-c.DockerSpawner.volumes = { 'jupyterhub-user-{username}': notebook_dir, "/i360/src/TVLArticleViewer": {"bind": "/home/jovyan/TVLArticleViewer", "mode": "ro"}}
+c.DockerSpawner.volumes = { 'jupyterhub-user-{username}': notebook_dir, "/i360/src/TVLArticleViewer": {"bind": "/home/jovyan/src/TVLArticleViewer", "mode": "ro"},
+"/i360/src/TVLDataPipelineAnalysis/nlpraw": {"bind": "/home/jovyan/src/TVLDataPipelineAnalysis/nlpraw", "mode": "ro"}}
 c.Spawner.default_url = '/work/article_viewer.ipynb'
 # c.Spawner.default_url = "/lab"
 # volume_driver is no longer a keyword argument to create_container()
