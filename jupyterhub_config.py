@@ -38,7 +38,7 @@ c.DockerSpawner.notebook_dir = notebook_dir
 # notebook directory in the container
 c.DockerSpawner.volumes = { 'jupyterhub-user-{username}': notebook_dir, "/i360/src/TVLArticleViewer": {"bind": "/home/jovyan/src/TVLArticleViewer", "mode": "ro"},
 "/i360/src/TVLDataPipelineAnalysis/nlpraw": {"bind": "/home/jovyan/src/TVLDataPipelineAnalysis/nlpraw", "mode": "ro"}}
-c.DockerSpawner.default_url = '/work/Doc_MRI_demo.ipynb'
+c.DockerSpawner.default_url = '/Doc_MRI_demo.ipynb'
 # c.Spawner.default_url = "/lab"
 # volume_driver is no longer a keyword argument to create_container()
 # c.DockerSpawner.extra_create_kwargs.update({ 'volume_driver': 'local' })
