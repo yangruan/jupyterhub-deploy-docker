@@ -25,7 +25,7 @@ services:
       dockerfile: Dockerfile.jupyterhub
       args:
         JUPYTERHUB_VERSION: ${JUPYTERHUB_VERSION}
-    restart: always
+    # restart: always
     image: jupyterhub
     container_name: jupyterhub
     volumes:
