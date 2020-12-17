@@ -54,7 +54,9 @@ services:
       - secrets/postgres.env
       - secrets/oauth.env
     command: >
-      jupyterhub -f /srv/jupyterhub/jupyterhub_config.py
+      jupyterhub upgrade-db
+      
+    # jupyterhub -f /srv/jupyterhub/jupyterhub_config.py
 
 volumes:
   data:
